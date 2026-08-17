@@ -4,7 +4,9 @@ An interactive portfolio presenting Tan-Chun Wang's experience across informatio
 
 ## Website
 
-This is a static website built with HTML, CSS and JavaScript. Open `index.html` locally or publish the repository with GitHub Pages.
+Live website: https://ginaintas-art.github.io/tan-chun-wang-portfolio/
+
+This is a static website built with HTML, CSS and JavaScript.
 
 ## Contact
 
