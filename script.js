@@ -149,8 +149,22 @@ buttons.forEach(button=>button.addEventListener("click",()=>selectCategory(categ
 
 // Replace the original generated SVG immediately while keeping all interactions.
 doll.innerHTML=characterMarkup("default");
-const careerHeroDoll=byId("career-hero-doll");
-if(careerHeroDoll)careerHeroDoll.innerHTML=characterMarkup("default");
+const careerHeroSlot=byId("career-hero-doll");
+const interactiveJourney=byId("interactive-journey");
+if(careerHeroSlot&&interactiveJourney){
+  interactiveJourney.classList.add("career-mini-journey");
+  careerHeroSlot.replaceWith(interactiveJourney);
+}
+
+// In-page résumé preview with close and download controls.
+const resumeModal=byId("resume-modal");
+const resumeClose=resumeModal?.querySelector(".resume-modal-close");
+let resumeTrigger=null;
+function openResume(){resumeTrigger=document.activeElement;resumeModal?.classList.add("is-open");resumeModal?.setAttribute("aria-hidden","false");document.body.classList.add("resume-open");resumeClose?.focus()}
+function closeResume(){resumeModal?.classList.remove("is-open");resumeModal?.setAttribute("aria-hidden","true");document.body.classList.remove("resume-open");resumeTrigger?.focus?.()}
+document.querySelectorAll(".resume-preview-trigger").forEach(button=>button.addEventListener("click",openResume));
+resumeClose?.addEventListener("click",closeResume);
+resumeModal?.addEventListener("click",event=>{if(event.target===resumeModal)closeResume()});
 
 // Accessible click-to-enlarge viewer for every raster content image.
 const lightbox=byId("image-lightbox");
@@ -189,7 +203,7 @@ document.querySelectorAll("img").forEach(img=>{
 });
 lightboxClose?.addEventListener("click",closeLightbox);
 lightbox?.addEventListener("click",event=>{if(event.target===lightbox)closeLightbox()});
-document.addEventListener("keydown",event=>{if(event.key==="Escape"&&lightbox?.classList.contains("is-open"))closeLightbox()});
+document.addEventListener("keydown",event=>{if(event.key!=="Escape")return;if(resumeModal?.classList.contains("is-open"))closeResume();if(lightbox?.classList.contains("is-open"))closeLightbox()});
 
 const recipeSeed=[
 {id:"fried-rice",name:"Fried Rice",ingredients:["rice","egg","carrot","peas"],category:"Main Course",difficulty:2,cookTime:15,steps:["Cook rice","Fry egg","Mix ingredients"],favourite:false},
