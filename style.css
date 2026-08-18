@@ -883,9 +883,11 @@ body.lightbox-open{overflow:hidden}img[data-lightbox]{cursor:zoom-in}.image-ligh
 @media(max-width:900px){.career-intro{grid-template-columns:1fr}.career-portrait .career-mini-journey{transform:translate(-50%,-50%) scale(.62)}.resume-paper{padding:36px}}
 @media(max-width:640px){
   .career-intro{gap:12px;padding-bottom:46px}
-  .career-portrait{height:390px;width:100%;overflow:visible}
-  .career-portrait .career-mini-journey{left:calc(50% - 9px);top:50%;transform:translate(-50%,-50%) scale(.42);transform-origin:center center}
-  .career-portrait-ring{left:calc(50% - 9px);width:min(88vw,350px)}
+  .career-portrait{height:min(82vh,680px);min-height:610px;width:100%;overflow:visible}
+  .career-portrait .career-mini-journey{left:50%;top:50%;transform:translate(-50%,-50%) scale(.68);transform-origin:center center}
+  .career-portrait-ring{left:50%;width:min(84vw,470px)}
+  .career-mini-journey #icon-stage{width:580px!important;max-width:none!important}
+  .career-mini-journey #doll-display{transform:scale(1.28);transform-origin:center center}
   .career-mini-journey .category-button[data-category="lab"],.career-mini-journey .category-button[data-category="hiking"]{left:105px!important}
   .career-mini-journey .category-button[data-category="it"],.career-mini-journey .category-button[data-category="australia"]{left:475px!important}
   .career-mini-journey .category-button[data-category="chemical"]{left:55px!important}
@@ -893,10 +895,19 @@ body.lightbox-open{overflow:hidden}img[data-lightbox]{cursor:zoom-in}.image-ligh
   .career-mini-journey #hero-content>.text-center>p:first-child{font-size:17px!important}
   .career-mini-journey #hero-content>.text-center>h1{font-size:64px!important;line-height:1.02}
   .career-mini-journey #hero-subtitle{font-size:22px!important;margin-top:12px!important}
+  .career-mini-journey #hero-content>.text-center{transform:translateY(-50px)}
   .career-mini-journey #hero-content.panel-open{transform:none}
   .resume-modal{padding:10px}.resume-modal-shell{width:100%;height:94vh}.resume-paper{width:calc(100% - 18px);padding:27px 22px}.resume-row{flex-direction:column;gap:0}.resume-row span{white-space:normal}
 }
-@media(max-width:380px){.career-portrait{height:365px}.career-portrait .career-mini-journey{transform:translate(-50%,-50%) scale(.39)}}
+@media(max-width:480px){
+  .career-portrait{height:580px;min-height:0}
+  .career-portrait .career-mini-journey{transform:translate(-50%,-50%) scale(.56)}
+  .career-portrait-ring{width:min(90vw,390px)}
+}
+@media(max-width:380px){
+  .career-portrait{height:540px}
+  .career-portrait .career-mini-journey{transform:translate(-50%,-50%) scale(.5)}
+}
 
 /* Responsive privacy-enhanced YouTube demonstration. */
 .it-video-frame iframe{display:block;width:100%;height:100%;border:0}
