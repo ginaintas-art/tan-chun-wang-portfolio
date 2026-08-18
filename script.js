@@ -149,6 +149,8 @@ buttons.forEach(button=>button.addEventListener("click",()=>selectCategory(categ
 
 // Replace the original generated SVG immediately while keeping all interactions.
 doll.innerHTML=characterMarkup("default");
+const careerHeroDoll=byId("career-hero-doll");
+if(careerHeroDoll)careerHeroDoll.innerHTML=characterMarkup("default");
 
 // Accessible click-to-enlarge viewer for every raster content image.
 const lightbox=byId("image-lightbox");
